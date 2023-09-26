@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.adapter.MusicAdapter
@@ -23,18 +22,19 @@ class FirstFragment : Fragment() {
     ): View? {
         val binding = FragmentFirstBinding.inflate(inflater, container, false)
 
-        list.add(Music(R.drawable.img, "Stayin Alive", "Bee Gees"))
-        list.add(Music(R.drawable.img1, "Kel yashaylik", "Tohir Sodiqov"))
+        list.add(Music(R.drawable.img, "Stayin Alive", "Bee Gees", R.raw.stayin_alive))
+        list.add(Music(R.drawable.img1, "Kel yashaylik", "Tohir Sodiqov", R.raw.music))
 
 
         var adapter = MusicAdapter(list, object : MusicAdapter.musicInterface{
             override fun onClick(music: Music) {
                 val bundle = Bundle()
                 bundle.putSerializable("music", music)
+                val fragmentSecond = SecondFragment()
+                fragmentSecond.arguments = bundle
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.main, SecondFragment()::class.java,bundle)
+                    .replace(R.id.main, fragmentSecond)
                     .commit()
-
             }
 
         })
