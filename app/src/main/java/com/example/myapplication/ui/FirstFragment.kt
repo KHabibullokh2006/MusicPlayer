@@ -24,6 +24,12 @@ class FirstFragment : Fragment() {
 
         list.add(Music(R.drawable.img, "Stayin Alive", "Bee Gees", R.raw.stayin_alive))
         list.add(Music(R.drawable.img1, "Kel yashaylik", "Tohir Sodiqov", R.raw.music))
+        list.add(Music(R.drawable.img2, "Wavin' Flag", "K'NAAN", R.raw.wavin_flag))
+        list.add(Music(R.drawable.img3, "On My Way", "Alan Walker", R.raw.on_my_way))
+        list.add(Music(R.drawable.img7, "I Got Love", "MiyaGi & Эндшпиль", R.raw.i_got_love))
+        list.add(Music(R.drawable.img5, "'Till I Collapse'", "Eminem", R.raw.till_i_collapse))
+        list.add(Music(R.drawable.img4, "Lily'", "Alan Walker", R.raw.lily))
+        list.add(Music(R.drawable.img6, "Mockingbird'", "Eminemr", R.raw.mockingbird))
 
 
         var adapter = MusicAdapter(list, object : MusicAdapter.musicInterface{

@@ -41,6 +41,7 @@ class SecondFragment : Fragment() {
         binding.author.text = item.author
 
         val mp = MediaPlayer.create(requireContext(),item.audio)
+        mp.start()
 
         binding.seekbar.progress = 0
         binding.seekbar.max = mp.duration
@@ -57,10 +58,13 @@ class SecondFragment : Fragment() {
 
         binding.seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (fromUser){
-                    mp.seekTo(progress)
+                if (mp!= null && fromUser){
+//                    mp.seekTo(progress)
+                    Log.d("TAG", progress.toString())
                 }
             }
+
+
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
                 TODO("Not yet implemented")
@@ -80,6 +84,14 @@ class SecondFragment : Fragment() {
         mp.setOnCompletionListener {
             binding.play.setImageResource(R.drawable.baseline_play_arrow_24)
             binding.seekbar.progress = 0
+        }
+
+        binding.next.setOnClickListener {
+
+        }
+
+        binding.prev.setOnClickListener {
+
         }
 
 
